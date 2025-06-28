@@ -22,7 +22,7 @@ jobs:
       - name: Install Appium globally
         run: npm install -g appium
 
-      - name: Start Android Emulator
+      - name: Start emulator and run tests
         uses: reactivecircus/android-emulator-runner@v2
         with:
           api-level: 30
@@ -30,22 +30,12 @@ jobs:
           arch: x86_64
           profile: pixel
           emulator-options: -no-window -no-audio -no-boot-anim
-          # Do not put all commands here; just start emulator.
-
-      - name: Wait for emulator to be ready and disable animations
-        run: |
-          adb wait-for-device
-          adb shell settings put global window_animation_scale 0
-          adb shell settings put global transition_animation_scale 0
-          adb shell settings put global animator_duration_scale 0
-
-      - name: Start Appium Server
-        run: |
-          nohup appium --log-level error &
-          sleep 5
-
-      - name: Run WebdriverIO Tests
-        run: npx wdio run ./wdio.conf.ts
+          disable-animations: true
+          script: |
+            adb devices
+            nohup appium --log-level error &
+            sleep 5
+            npx wdio run ./wdio.conf.ts
 
       - name: Upload Allure Results
         uses: actions/upload-artifact@v4
