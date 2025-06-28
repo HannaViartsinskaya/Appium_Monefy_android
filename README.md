@@ -16,7 +16,7 @@ What still I want to improve:
  - all types of apps supported
  - also extensive support community
 
-I decided to go with TS, because of I wanted to demonstarte my ability to use TS, due to for the 3rd task i will use Java. Also what I like in this combination is how easy and clean to write asynchronous commands, just like
+I decided to go with TS, because I want to demonstarte my ability to use TS, due to for the 3rd task i will use Java. Also what I like in this combination is how easy and clean to write asynchronous commands, just like
 `await driver.setImplicitTimeout(5000);`
  
 
