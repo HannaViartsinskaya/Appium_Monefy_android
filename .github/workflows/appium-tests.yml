@@ -32,9 +32,16 @@ jobs:
           emulator-options: -no-window -no-audio -no-boot-anim
           disable-animations: true
           script: |
+            echo "✅ Waiting for emulator to boot..."
+            adb wait-for-device
+            adb shell getprop sys.boot_completed | grep 1
             adb devices
+            echo "✅ Unlocking screen..."
+            adb shell input keyevent 82
+            echo "✅ Starting Appium..."
             nohup appium --log-level error &
-            sleep 5
+            sleep 10
+            echo "✅ Running WebdriverIO tests..."
             npx wdio run ./wdio.conf.ts
 
       - name: Upload Allure Results
