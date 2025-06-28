@@ -1,0 +1,4 @@
+{
+  "using": "css selector",
+  "value": "com.monefy.app.lite:id/buttonContinue"
+}
