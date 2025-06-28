@@ -1,1 +1,48 @@
-# Appium_Monefy_android
+# Monefy Android Automation Suite
+
+This project contains automated tests for the Monefy Android application, implemented with Appium and TypeScript, following the Page Object Model (POM) design pattern.
+
+#### Project Overview
+The automation suite verifies core financial workflows and key UI behaviors:
+
+- Adding incomes and expenses via different flows
+- Validating balance and summary calculations
+- Filtering transactions by date ranges
+
+These tests check that Monefy reliably tracks user finances and shows accurate data.
+
+### How to run the project
+#### Prerequisites
+- Node.js (>=16)
+- Appium server installed and running
+- Android Emulator or real device configured
+- Monefy APK installed on the device/emulator
+
+#### Install Dependencies
+`npm install`
+
+#### Running the Tests
+`npx wdio run wdio.conf.ts`
+
+Or run a specific test file:
+`npx wdio run wdio.conf.ts --spec ./tests/add_expenses_incomes.spec.ts`
+
+### Critical Test Coverage
+
+#### Income and Expense Management (addExpensesAndIncomes.test.ts)
+Covered:
+- Adding an income transaction (Salary: $200.00)
+Adding expenses in two ways:
+- From a predefined category
+- By selecting category manually
+Verifying:
+- Correct snackbar notifications
+- Expense and income amounts in balance circle
+- Updated balance reflecting the transactions
+
+
+#### Filtering Transactions by Date (timeRangeFiltering.test.ts)
+Covered:
+- Default time range title displays the current month
+- Changing time range filter to "Day"
+- Verifying the time range title updates to the correct weekday/date
