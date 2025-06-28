@@ -32,24 +32,14 @@ jobs:
           emulator-options: -no-window -no-audio -no-boot-anim
           disable-animations: true
           script: |
-            echo "Waiting for emulator to become available..."
+            echo "Ensuring emulator is available..."
             adb wait-for-device
 
-            echo "Checking if boot completed..."
-            BOOT_COMPLETED=""
-            until [ "$BOOT_COMPLETED" = "1" ]; do
-              BOOT_COMPLETED=$(adb shell getprop sys.boot_completed | tr -d '\r')
-              echo "Boot completed: $BOOT_COMPLETED"
-              sleep 2
-            done
-
-            echo "Emulator is fully booted and ready."
-
-            # Start Appium server in background
+            echo "Emulator is ready. Starting Appium..."
             nohup appium --log-level error &
             sleep 5
 
-            # Run WebdriverIO tests
+            echo "Running WebdriverIO tests..."
             npx wdio run ./wdio.conf.ts
 
       - name: Upload Allure Results
