@@ -23,10 +23,6 @@ jobs:
       - name: Install Appium globally
         run: npm install -g appium
 
-      - name: Install Appium drivers
-        run: |
-          appium driver install uiautomator2
-
       - name: Start Appium Server
         run: |
           nohup appium --log-level error &
