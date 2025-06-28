@@ -62,7 +62,8 @@ export const config: WebdriverIO.Config = {
        "appium:automationName": "UiAutomator2",
        "appium:autoGrantPermissions": true,
        "appium:appWaitActivity": "*",
-       "appium:appPackage": "com.monefy.app.lite"
+       "appium:appPackage": "com.monefy.app.lite",
+       "appium:app": path.resolve('./apps/Monefy.apk')
      }
    ],
 
