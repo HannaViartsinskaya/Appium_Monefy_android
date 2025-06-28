@@ -1,0 +1,42 @@
+name: Run Appium Tests
+
+
+on:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Appium globally
+        run: npm install -g appium
+
+      - name: Install Appium drivers
+        run: |
+          appium driver install uiautomator2
+
+      - name: Start Appium Server
+        run: |
+          nohup appium --log-level error &
+          sleep 5
+
+      - name: Run WebdriverIO Tests
+        run: npx wdio run ./wdio.conf.ts
+
+      - name: Upload Allure Results
+        uses: actions/upload-artifact@v4
+        with:
+          name: allure-results
+          path: allure-results
