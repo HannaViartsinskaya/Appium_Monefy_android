@@ -1,6 +1,24 @@
 # Monefy Android Automation Suite
 
-This project contains automated tests for the Monefy Android application, implemented with Appium and TypeScript, following the Page Object Model (POM) design pattern.
+This project contains automated tests for the Monefy Android application, implemented with Appium and TypeScript, following the Page Object Model (POM) design pattern. 
+Based on my experience, the solution will be easy mantain and scale, because:
+- we have POM here and we can easily extend tests coverage;
+- also I added reporting for visibility of the results
+
+What still I want to improve:
+- add Dockerization to isolate depencies and add paralelisation, and also setting up CI/CD would be easier
+- add running our tests in CI/CD with Github actions
+
+#### Why Appium with TS
+ I selected Appium because:
+ - Cross-Platform scalability
+ - Variety of languages
+ - all types of apps supported
+ - also extensive support community
+
+I decided to go with TS, because of I wanted to demonstarte my ability to use TS, due to for the 3rd task i will use Java. Also what I like in this combination is how easy and clean to write asynchronous commands, just like
+`await driver.setImplicitTimeout(5000);`
+ 
 
 #### Project Overview
 The automation suite verifies core financial workflows and key UI behaviors:
