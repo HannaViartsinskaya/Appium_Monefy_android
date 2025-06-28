@@ -63,7 +63,8 @@ export const config: WebdriverIO.Config = {
        "appium:autoGrantPermissions": true,
        "appium:appWaitActivity": "*",
        "appium:appPackage": "com.monefy.app.lite",
-       "appium:app": path.resolve('./apps/Monefy.apk')
+       "appium:app": path.resolve('./apps/Monefy.apk'),
+       "appium:adbExecTimeout": 60000
      }
    ],
 
