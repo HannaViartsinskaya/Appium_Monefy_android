@@ -35,9 +35,7 @@ jobs:
             echo "Ensuring emulator is available..."
             adb wait-for-device
 
-            echo "Emulator is ready. Starting Appium..."
-            nohup appium --log-level error &
-            sleep 5
+            echo "Emulator is ready.."
 
             echo "Running WebdriverIO tests..."
             npx wdio run ./wdio.conf.ts
