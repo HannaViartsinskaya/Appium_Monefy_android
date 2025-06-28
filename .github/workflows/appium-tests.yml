@@ -21,9 +21,6 @@ jobs:
         
       - name: Check app
         run: ls -l ./apps/Monefy.apk
-        
-      - name: Install Appium globally
-        run: npm install -g appium
 
       - name: Start emulator and run tests
         uses: reactivecircus/android-emulator-runner@v2
@@ -37,11 +34,20 @@ jobs:
           script: |
             echo "Ensuring emulator is available..."
             adb wait-for-device
+            echo "Emulator is ready."
 
-            echo "Emulator is ready.."
+            echo "Starting Appium..."
+            npx appium --base-path / --port 4723 &
+            APPIUM_PID=$!
+
+            echo "Waiting for Appium to be ready..."
+            npx wait-on http://127.0.0.1:4723/wd/hub/status
 
             echo "Running WebdriverIO tests..."
             npx wdio run ./wdio.conf.ts
+
+            echo "Stopping Appium..."
+            kill $APPIUM_PID
 
       - name: Upload Allure Results
         uses: actions/upload-artifact@v4
