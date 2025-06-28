@@ -27,6 +27,14 @@ These tests check that Monefy reliably tracks user finances and shows accurate d
 Or run a specific test file:
 `npx wdio run wdio.conf.ts --spec ./tests/add_expenses_incomes.spec.ts`
 
+#### Opening Allure Report
+`allure generate ./allure-results -o ./allure-report --clean`
+and then open report
+`allure open ./allure-report`
+Note: Also I attached example of the genrated report under allure-report folder
+<img width="1502" alt="Screenshot 2025-06-29 at 00 14 52" src="https://github.com/user-attachments/assets/3dd2aa05-42ed-49be-878b-6b269069cd75" />
+
+
 ### Critical Test Coverage
 
 #### Income and Expense Management (addExpensesAndIncomes.test.ts)
