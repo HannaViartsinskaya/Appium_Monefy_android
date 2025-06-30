@@ -20,14 +20,17 @@ I decided to go with TS, because I want to demonstarte my ability to use TS, due
 `await driver.setImplicitTimeout(5000);`
  
 
+
 #### Project Overview
 The automation suite verifies core financial workflows and key UI behaviors:
 
 - Adding incomes and expenses via different flows
 - Validating balance and summary calculations
 - Filtering transactions by date ranges
+- Sending transfer from Cash to Payment card
 
-These tests check that Monefy reliably tracks user finances and shows accurate data.
+These tests check that Monefy reliably tracks user finances and shows accurate data. I found these flows more important in the application, and also for the future would extend checks that balance was updated succesfully on balance page also. And expenses & incomes are displaying correctly in Balance
+
 
 ### How to run the project
 #### Prerequisites
@@ -43,7 +46,7 @@ These tests check that Monefy reliably tracks user finances and shows accurate d
 `npx wdio run wdio.conf.ts`
 
 Or run a specific test file:
-`npx wdio run wdio.conf.ts --spec ./tests/add_expenses_incomes.spec.ts`
+` npx wdio run wdio.conf.ts --spec ./test/specs/moneyTransfer.test.ts`
 
 #### Opening Allure Report
 `allure generate ./allure-results -o ./allure-report --clean`
@@ -72,3 +75,10 @@ Covered:
 - Default time range title displays the current month
 - Changing time range filter to "Day"
 - Verifying the time range title updates to the correct weekday/date
+
+
+#### Transferring money from one account to another (moneyTransfer.test.ts)
+Covered:
+- By default selected 'All accounts' of the user
+- User can change filtering of the dashboard to 'Cash' or 'Payment card'
+- User can send money from 'Cash' to 'Payment card', and balance will be adjusted correctly in Cash dashboard & Payment card
