@@ -53,7 +53,7 @@ Or run a specific test file:
 and then open report
 `allure open ./allure-report`
 Note: Also I attached example of the genrated report under allure-report folder
-<img width="1502" alt="Screenshot 2025-06-29 at 00 14 52" src="https://github.com/user-attachments/assets/3dd2aa05-42ed-49be-878b-6b269069cd75" />
+<img width="1511" alt="Screenshot 2025-06-30 at 18 11 16" src="https://github.com/user-attachments/assets/cf275692-f7c6-496a-b2d7-16a4f997b7e9" />
 
 
 ### Critical Test Coverage
