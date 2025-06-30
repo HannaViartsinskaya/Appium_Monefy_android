@@ -8,6 +8,7 @@ Based on my experience, the solution will be easy mantain and scale, because:
 What still I want to improve:
 - add Dockerization to isolate depencies and add paralelisation, and also setting up CI/CD would be easier
 - add running our tests in CI/CD with Github actions
+- add parametrization to tests and check different values
 
 #### Why Appium with TS
  I selected Appium because:
